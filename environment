@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+export CONTECO_LABEL="Conteco metricbeat overlay"
+export CONTECO_DESCRIPTION="The ElasticSearch Metricbeat for cluster node monitoring feeding directly into Kafka."
+
+export CONTECO_TYPE="metricbeat"
+export CONTECO_NAME="overlay"
+export CONTECO_TAG="7.1.1"
+
+export CONTECO_BASE="metricbeat.base"
+export CONTECO_BUILD="image"

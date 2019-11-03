@@ -1,0 +1,25 @@
+---
+version: '3'
+services:
+
+# START SERVICE metricbeat.overlay_es
+  metricbeat:
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM}/${CONTECO_ECOSYSTEM}.metricbeat.overlay_es:7.1.1
+    environment: [] 
+    command: []
+    volumes: []
+    ports: []
+    networks: [${CONTECO_DC_METRICBEAT_OVERLAY_ES_NETWORKS}]
+    deploy:
+      mode: replicated
+      resources: 
+        limits: 
+          cpus: '${CONTECO_DC_METRICBEAT_OVERLAY_ES_DEPLOY_RESOURCES_LIMITS_CPUS}'
+          memory: '${CONTECO_DC_METRICBEAT_OVERLAY_ES_DEPLOY_RESOURCES_LIMITS_MEMORY}'
+        reservations:
+          cpus: '${CONTECO_DC_METRICBEAT_OVERLAY_ES_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
+          memory: '${CONTECO_DC_METRICBEAT_OVERLAY_ES_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+# END SERVICE metricbeat.overlay_es
+
+volumes: {${CONTECO_DC_GLOBAL_VOLUMES}}
+networks: {${CONTECO_DC_GLOBAL_NETWORKS}}
