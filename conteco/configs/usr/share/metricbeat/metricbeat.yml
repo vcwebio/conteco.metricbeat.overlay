@@ -320,12 +320,9 @@ metricbeat.modules:
   hosts: ["zookeeper:2181"]
   fields_under_root: true
   
-output.elasticsearch:
+output.console:
   enabled: true
-  hosts: 'elasticsearch:9200'
-
-setup.kibana.host: "kibana:5601"
-setup.dashboards.enabled: true
+  pretty: false
 
 logging.level: warning
 logging.metrics.enabled: false
