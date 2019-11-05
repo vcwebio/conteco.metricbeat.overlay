@@ -6,12 +6,14 @@ metricbeat.modules:
   metricsets: ["namespace"]
   period: 10s
   hosts: ["aerospike:3000"]
+  fields_under_root: true
 
 - module: apache
   enabled: false
   metricsets: ["status"]
   period: 10s
   hosts: ["http://127.0.0.1"]
+  fields_under_root: true
 
 - module: aws
   enabled: false
@@ -22,24 +24,28 @@ metricbeat.modules:
   secret_access_key: '${AWS_SECRET_ACCESS_KEY:""}'
   session_token: '${AWS_SESSION_TOKEN:""}'
   default_region: '${AWS_REGION:us-west-1}'
+  fields_under_root: true
 
 - module: ceph
   enabled: false
   metricsets: ["cluster_disk", "cluster_health", "monitor_health", "pool_disk", "osd_tree"]
   period: 10s
   hosts: ["ceph:5000"]
+  fields_under_root: true
 
 - module: couchbase
   enabled: false
   metricsets: ["bucket", "cluster", "node"]
   period: 10s
   hosts: ["couchbase:8091"]
+  fields_under_root: true
 
 - module: couchdb
   enabled: false
   metricsets: ["server"]
   period: 10s
   hosts: ["localhost:5984"]
+  fields_under_root: true
 
 - module: dropwizard
   enabled: false
@@ -48,6 +54,7 @@ metricbeat.modules:
   hosts: ["localhost:8080"]
   metrics_path: /metrics/metrics
   namespace: example
+  fields_under_root: true
 
 - module: elasticsearch
   enabled: true
@@ -56,18 +63,21 @@ metricbeat.modules:
     - node_stats
   period: 10s
   hosts: ["http://elasticsearch:9200"]
+  fields_under_root: true
 
 - module: envoyproxy
   enabled: false
   metricsets: ["server"]
   period: 10s
   hosts: ["localhost:9901"]
+  fields_under_root: true
 
 - module: etcd
   enabled: false
   metricsets: ["leader", "self", "store"]
   period: 10s
   hosts: ["localhost:2379"]
+  fields_under_root: true
 
 - module: golang
   enabled: false
@@ -77,17 +87,19 @@ metricbeat.modules:
   expvar:
     namespace: "example"
     path: "/debug/vars"
+  fields_under_root: true
 
-#------------------------------- Graphite Module -------------------------------
 - module: graphite
   enabled: false
   metricsets: ["server"]
+  fields_under_root: true
 
 - module: haproxy
   enabled: false
   metricsets: ["info", "stat"]
   period: 10s
   hosts: ["tcp://127.0.0.1:14567"]
+  fields_under_root: true
 
 - module: http
   enabled: false
@@ -95,11 +107,13 @@ metricbeat.modules:
   hosts: ["localhost:80"]
   namespace: "json_namespace"
   path: "/"
+  fields_under_root: true
 
 - module: http
   enabled: false
   host: "localhost"
   port: "8080"
+  fields_under_root: true
 
 - module: jolokia
   enabled: false
@@ -109,12 +123,14 @@ metricbeat.modules:
   jmx.mappings:
   jmx.application:
   jmx.instance:
+  fields_under_root: true
 
 - module: kafka
   enabled: true
   metricsets: ["consumergroup", "partition"]
   period: 10s
   hosts: ["kafka:9092"]
+  fields_under_root: true
 
 - module: kibana
   enabled: true
@@ -122,6 +138,7 @@ metricbeat.modules:
   period: 10s
   hosts: ["kibana:5601"]
   basepath: ""
+  fields_under_root: true
 
 - module: kubernetes
   enabled: false
@@ -135,6 +152,7 @@ metricbeat.modules:
   hosts: ["localhost:10255"]
   add_metadata: true
   in_cluster: true
+  fields_under_root: true
 
 - module: kubernetes
   enabled: false
@@ -149,41 +167,48 @@ metricbeat.modules:
   hosts: ["kube-state-metrics:8080"]
   add_metadata: true
   in_cluster: true
+  fields_under_root: true
 
 - module: kubernetes
   enabled: false
   metricsets:
     - event
+  fields_under_root: true
 
 - module: kubernetes
   enabled: false
   metricsets:
     - apiserver
   hosts: ["https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}"]
+  fields_under_root: true
 
 - module: kvm
   enabled: false
   metricsets: ["dommemstat"]
   period: 10s
   hosts: ["unix:///var/run/libvirt/libvirt-sock"]
+  fields_under_root: true
 
 - module: logstash
   enabled: false
   metricsets: ["node", "node_stats"]
   period: 10s
   hosts: ["localhost:9600"]
+  fields_under_root: true
 
 - module: memcached
   enabled: false
   metricsets: ["stats"]
   period: 10s
   hosts: ["localhost:11211"]
+  fields_under_root: true
 
 - module: mongodb
   enabled: false
   metricsets: ["dbstats", "status", "collstats", "metrics", "replstatus"]
   period: 10s
   hosts: ["localhost:27017"]
+  fields_under_root: true
 
 - module: mssql
   enabled: false
@@ -192,12 +217,14 @@ metricbeat.modules:
     - "performance"
   hosts: ["sqlserver://sa@localhost"]
   period: 10s
+  fields_under_root: true
 
 - module: munin
   enabled: false
   metricsets: ["node"]
   period: 10s
   hosts: ["localhost:4949"]
+  fields_under_root: true
 
 - module: mysql
   enabled: false
@@ -205,12 +232,14 @@ metricbeat.modules:
     - "status"
   period: 10s
   hosts: ["root:secret@tcp(127.0.0.1:3306)/"]
+  fields_under_root: true
 
 - module: nats
   enabled: false
   metricsets: ["connections", "routes", "stats", "subscriptions"]
   period: 10s
   hosts: ["localhost:8222"]
+  fields_under_root: true
 
 - module: nginx
   enabled: true
@@ -218,6 +247,7 @@ metricbeat.modules:
   period: 10s
   hosts: ["http://nginx"]
   server_status_path: "server-status"
+  fields_under_root: true
 
 - module: php_fpm
   enabled: false
@@ -226,6 +256,7 @@ metricbeat.modules:
   period: 10s
   status_path: "/status"
   hosts: ["localhost:8080"]
+  fields_under_root: true
 
 - module: postgresql
   enabled: false
@@ -235,36 +266,42 @@ metricbeat.modules:
     - activity
   period: 10s
   hosts: ["postgres://localhost:5432"]
+  fields_under_root: true
 
 - module: prometheus
   enabled: false
   period: 10s
   hosts: ["localhost:9090"]
   metrics_path: /metrics
+  fields_under_root: true
 
 - module: rabbitmq
   enabled: false
   metricsets: ["node", "queue", "connection"]
   period: 10s
   hosts: ["localhost:15672"]
+  fields_under_root: true
 
 - module: redis
   enabled: false
   metricsets: ["info", "keyspace"]
   period: 10s
   hosts: ["127.0.0.1:6379"]
+  fields_under_root: true
 
 - module: traefik
   enabled: false
   metricsets: ["health"]
   period: 10s
   hosts: ["localhost:8080"]
+  fields_under_root: true
 
 - module: uwsgi
   enabled: false
   metricsets: ["status"]
   period: 10s
   hosts: ["tcp://127.0.0.1:9191"]
+  fields_under_root: true
 
 - module: vsphere
   enabled: false
@@ -274,12 +311,14 @@ metricbeat.modules:
   username: "user"
   password: "password"
   insecure: false
+  fields_under_root: true
 
 - module: zookeeper
   enabled: true
   metricsets: ["mntr", "server"]
   period: 10s
   hosts: ["zookeeper:2181"]
+  fields_under_root: true
   
 output.elasticsearch:
   enabled: true
