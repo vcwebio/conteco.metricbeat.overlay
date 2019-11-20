@@ -175,8 +175,8 @@ metricbeat.modules:
     source: overlay-metrics
 
 - module: kubernetes
-   enabled: ${ES_METRICBEAT_KUBERNETES:false}
- metricsets:
+  enabled: ${ES_METRICBEAT_KUBERNETES:false}
+  metricsets:
     - state_node
     - state_deployment
     - state_replicaset
