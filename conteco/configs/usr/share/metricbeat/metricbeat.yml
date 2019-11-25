@@ -8,6 +8,7 @@ metricbeat.modules:
   hosts: ["aerospike:3000"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: apache
   enabled: ${ES_METRICBEAT_APAPCHE:false}
@@ -16,6 +17,7 @@ metricbeat.modules:
   hosts: ["http://127.0.0.1"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: aws
   enabled: ${ES_METRICBEAT_AWS:false}
@@ -28,6 +30,7 @@ metricbeat.modules:
   default_region: '${AWS_REGION:us-west-1}'
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: ceph
   enabled: ${ES_METRICBEAT_CEPH:false}
@@ -36,6 +39,7 @@ metricbeat.modules:
   hosts: ["ceph:5000"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: couchbase
   enabled: ${ES_METRICBEAT_COUCHBASE:false}
@@ -44,6 +48,7 @@ metricbeat.modules:
   hosts: ["couchbase:8091"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: couchdb
   enabled: ${ES_METRICBEAT_COUCHDB:false}
@@ -52,6 +57,7 @@ metricbeat.modules:
   hosts: ["localhost:5984"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: dropwizard
   enabled: ${ES_METRICBEAT_DROPWIZARD:false}
@@ -62,6 +68,7 @@ metricbeat.modules:
   namespace: example
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: elasticsearch
   enabled: ${ES_METRICBEAT_ELASTICSEARCH:false}
@@ -72,6 +79,7 @@ metricbeat.modules:
   hosts: ["http://elasticsearch:9200"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: envoyproxy
   enabled: ${ES_METRICBEAT_ENVOYPROXY:false}
@@ -80,6 +88,7 @@ metricbeat.modules:
   hosts: ["localhost:9901"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: etcd
   enabled: ${ES_METRICBEAT_ETCD:false}
@@ -88,6 +97,7 @@ metricbeat.modules:
   hosts: ["localhost:2379"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: golang
   enabled: ${ES_METRICBEAT_GOLANG:false}
@@ -99,6 +109,7 @@ metricbeat.modules:
     path: "/debug/vars"
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 #------------------------------- Graphite Module -------------------------------
 - module: graphite
@@ -106,6 +117,7 @@ metricbeat.modules:
   metricsets: ["server"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: haproxy
   enabled: ${ES_METRICBEAT_HAPROXY:false}
@@ -114,6 +126,7 @@ metricbeat.modules:
   hosts: ["tcp://127.0.0.1:14567"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: http
   enabled: ${ES_METRICBEAT_HTTP:false}
@@ -123,6 +136,7 @@ metricbeat.modules:
   path: "/"
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: http
   enabled: ${ES_METRICBEAT_HTTP:false}
@@ -130,6 +144,7 @@ metricbeat.modules:
   port: "8080"
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: jolokia
   enabled: ${ES_METRICBEAT_JOLOKIA:false}
@@ -141,6 +156,7 @@ metricbeat.modules:
   jmx.instance:
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kafka
   enabled: ${ES_METRICBEAT_KAFKA:false}
@@ -149,6 +165,7 @@ metricbeat.modules:
   hosts: ["kafka:9092"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kibana
   enabled: ${ES_METRICBEAT_KIBANA:false}
@@ -158,6 +175,7 @@ metricbeat.modules:
   basepath: ""
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kubernetes
   enabled: ${ES_METRICBEAT_KUBERNETES:false}
@@ -173,6 +191,7 @@ metricbeat.modules:
   in_cluster: true
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kubernetes
   enabled: ${ES_METRICBEAT_KUBERNETES:false}
@@ -189,6 +208,7 @@ metricbeat.modules:
   in_cluster: true
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kubernetes
   enabled: ${ES_METRICBEAT_KUBERNETES:false}
@@ -196,6 +216,7 @@ metricbeat.modules:
     - event
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kubernetes
   enabled: ${ES_METRICBEAT_KUBERNETES:false}
@@ -204,6 +225,7 @@ metricbeat.modules:
   hosts: ["https://${KUBERNETES_SERVICE_HOST}:${KUBERNETES_SERVICE_PORT}"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: kvm
   enabled: ${ES_METRICBEAT_KVM:false}
@@ -212,6 +234,7 @@ metricbeat.modules:
   hosts: ["unix:///var/run/libvirt/libvirt-sock"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: logstash
   enabled: ${ES_METRICBEAT_LOGSTASH:false}
@@ -220,6 +243,7 @@ metricbeat.modules:
   hosts: ["localhost:9600"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: memcached
   enabled: ${ES_METRICBEAT_MEMCACHED:false}
@@ -228,6 +252,7 @@ metricbeat.modules:
   hosts: ["localhost:11211"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: mongodb
   enabled: ${ES_METRICBEAT_MONGODB:false}
@@ -236,6 +261,7 @@ metricbeat.modules:
   hosts: ["localhost:27017"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: mssql
   enabled: ${ES_METRICBEAT_MSSQL:false}
@@ -246,6 +272,7 @@ metricbeat.modules:
   period: 10s
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: munin
   enabled: ${ES_METRICBEAT_MUNIN:false}
@@ -254,6 +281,7 @@ metricbeat.modules:
   hosts: ["localhost:4949"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: mysql
   enabled: ${ES_METRICBEAT_MYSQL:false}
@@ -263,6 +291,7 @@ metricbeat.modules:
   hosts: ["root:secret@tcp(127.0.0.1:3306)/"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: nats
   enabled: ${ES_METRICBEAT_NATS:false}
@@ -271,6 +300,7 @@ metricbeat.modules:
   hosts: ["localhost:8222"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: nginx
   enabled: ${ES_METRICBEAT_NGINX:false}
@@ -280,6 +310,7 @@ metricbeat.modules:
   server_status_path: "server-status"
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: php_fpm
   enabled: ${ES_METRICBEAT_PHP_FPM:false}
@@ -290,6 +321,7 @@ metricbeat.modules:
   hosts: ["localhost:8080"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: postgresql
   enabled: ${ES_METRICBEAT_POSTGRESQL:false}
@@ -301,6 +333,7 @@ metricbeat.modules:
   hosts: ["postgres://localhost:5432"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: prometheus
   enabled: ${ES_METRICBEAT_PROMETHEUS:false}
@@ -309,6 +342,7 @@ metricbeat.modules:
   metrics_path: /metrics
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: rabbitmq
   enabled: ${ES_METRICBEAT_RABBITMQ:false}
@@ -317,6 +351,7 @@ metricbeat.modules:
   hosts: ["localhost:15672"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: redis
   enabled: ${ES_METRICBEAT_REDIS:false}
@@ -325,6 +360,7 @@ metricbeat.modules:
   hosts: ["127.0.0.1:6379"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: traefik
   enabled: ${ES_METRICBEAT_TRAEFIK:false}
@@ -333,6 +369,7 @@ metricbeat.modules:
   hosts: ["localhost:8080"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: uwsgi
   enabled: ${ES_METRICBEAT_UWSGI:false}
@@ -341,6 +378,7 @@ metricbeat.modules:
   hosts: ["tcp://127.0.0.1:9191"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: vsphere
   enabled: ${ES_METRICBEAT_VSPHERE:false}
@@ -352,6 +390,7 @@ metricbeat.modules:
   insecure: false
   fields:
     source: overlay-metrics
+  fields_under_root: true
 
 - module: zookeeper
   enabled: ${ES_METRICBEAT_ZOOKEEPER:false}
@@ -360,6 +399,7 @@ metricbeat.modules:
   hosts: ["zookeeper:2181"]
   fields:
     source: overlay-metrics
+  fields_under_root: true
   
 output.console:
   enabled: true
