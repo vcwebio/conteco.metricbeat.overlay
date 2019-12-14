@@ -9,7 +9,7 @@ services:
     command: []
     volumes: ['/etc:/hostfs/etc:ro']
     ports: []
-    networks: [${CONTECO_ECOSYSTEM}_overlay]
+    networks: [${CONTECO_DC_METRICBEAT_OVERLAY_NETWORKS}]
     deploy:
       mode: replicated
       resources:
@@ -23,4 +23,4 @@ services:
 # END SERVICE metricbeat.overlay
 
 volumes: {}
-networks: {${CONTECO_ECOSYSTEM}_overlay: { external: true }}
+networks: {${CONTECO_DC_GLOBAL_NETWORKS}}
