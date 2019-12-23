@@ -263,8 +263,27 @@ metricbeat.modules:
   hosts: ["zookeeper:2181"]
 
 output.console:
-  enabled: true
+  enabled: ${ES_METRICBEAT_OUTPUT_CONSOLE:false}
   pretty: false
+
+output.elasticsearch:
+  enabled: ${ES_METRICBEAT_OUTPUT_ELASTICSEARCH:false}
+  hosts: ${ES_METRIBEAT_OUTPUT_ELASTICSEARCH_HOSTS:'elasticsearch:9200'}
+
+setup.kibana.host: ${ES_METRICBEAT_OUTPUT_KIBANA_HOST:"kibana:5601"}
+setup.dashboards.enabled: ${ES_METRICBEAT_OUTPUT_KIBANA_DASHBOARDS:false}
+
+output.kafka:
+  enabled: ${ES_METRICBEAT_OUTPUT_KAFKA:false}
+  hosts: ${ES_METRICBEAT_OUTPUT_KAFKA_HOSTS:"kafka:9092"}
+  topic: '${ES_METRICBEAT_OUTPUT_KAFKA_TOPIC:es_filebeat_kafka}'
+  version: "2.0.0"
+  partition.round_robin:
+    reachable_only: false
+
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 1000000
 
 logging.level: warning
 logging.metrics.enabled: false

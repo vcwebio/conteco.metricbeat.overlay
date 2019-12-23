@@ -1,11 +1,12 @@
-# The Conteco Metricbeat overlay
+# `metricbeat.overlay` - ConteEco
 
-The ContEco Metricbeat overlay image is preconfigured to monitor services in an overlay network, feeding directly into Kafka. 
+The ElasticSearch Metricbeat base image configured for service monitoring.
+See `conteco.docs.overview` for more information on the ContEco ecosystem.
 
-## Aim
+## Configuration Changes
 
-This is a preconfigured image designed to monitor services within an overlay network.  
-It is planned to extend this image so it automatically picks up services and start the respective monitoring module.
+Configured to monitor a wide variety of services.  
+The output is parameterised to choose between console, ElasticSearch and Kafka.
 
 ## Tags
 
