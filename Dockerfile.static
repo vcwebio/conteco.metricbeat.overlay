@@ -24,7 +24,7 @@ LABEL io.vcweb.name="overlay" \
       io.vcweb.tag="7.1.1" \
       io.vcweb.base="metricbeat.base" \
       io.vcweb.build="image" \
-      io.vcweb.label="Conteco metricbeat overlay" \
-      io.vcweb.description="The ElasticSearch Metricbeat for cluster node monitoring feeding directly into Kafka." \
+      io.vcweb.label="metricbeat.overlay - ConteEco" \
+      io.vcweb.description="The ElasticSearch Metricbeat base image configured for service monitoring." \
       io.vcweb.docker.cmd.help="docker run vcwebio/conteco.metricbeat.overlay --help" 
 ##### END image/Dockerfile/env-labels-footer #####
