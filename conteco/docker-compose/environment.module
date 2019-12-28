@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # START CONFIGURATION
-export CONTECO_DC_GLOBAL_STACKS=''metricbeat.overlay''
+export CONTECO_DC_GLOBAL_STACKS='metricbeat.overlay'
+export CONTECO_DC_GLOBAL_STACKNAMES='metricbeat_overlay'
+export CONTECO_DC_GLOBAL_VOLUME_LIST='metricbeat_overlay_volume'
 # END CONFIGURATION
 
 # START OTHER VARIABLES
@@ -17,6 +19,8 @@ export CONTECO_DC_METRICBEAT_OVERLAY_ENVIRONMENT_OUTPUT_CONFIG_KAFKA_TOPIC="test
 # END OTHER VARIABLES
 
 # START VOLUMES VARIABLES
+export CONTECO_DC_METRICBEAT_OVERLAY_VOLUMES="'/etc:/hostfs/etc:ro','${CONTECO_TYPE}_metricbeat_overlay_volume:/usr/share/metricbeat/data'"
+export CONTECO_DC_GLOBAL_VOLUMES=""
 # END VOLUMES VARIABLES
 
 # START PORTS VARIABLES
