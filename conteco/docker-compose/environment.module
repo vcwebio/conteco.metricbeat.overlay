@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
 # START CONFIGURATION
-export CONTECO_DC_GLOBAL_STACKS='metricbeat.overlay'
-export CONTECO_DC_GLOBAL_STACKNAMES='metricbeat_overlay'
-export CONTECO_DC_GLOBAL_VOLUME_LIST='metricbeat_overlay_volume'
+export CONTECO_DC_GLOBAL_STACKS="metricbeat.overlay"
+export CONTECO_DC_GLOBAL_STACKNAMES="metricbeat"
+export CONTECO_DC_GLOBAL_BOOTSTACKS=""
+export CONTECO_DC_GLOBAL_RUNSTACKS="metricbeat"
+export CONTECO_DC_GLOBAL_VOLUME_LIST="metricbeat_overlay_volume"
 # END CONFIGURATION
 
 # START OTHER VARIABLES
