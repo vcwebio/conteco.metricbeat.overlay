@@ -5,7 +5,7 @@ export CONTECO_DC_GLOBAL_STACKS="metricbeat.overlay"
 export CONTECO_DC_GLOBAL_STACKNAMES="metrics_overlay"
 export CONTECO_DC_GLOBAL_BOOTSTACKS=""
 export CONTECO_DC_GLOBAL_RUNSTACKS="metrics_overlay"
-export CONTECO_DC_GLOBAL_VOLUME_LIST="metrics_overlay_volume"
+export CONTECO_DC_GLOBAL_VOLUME_LIST="conteco_dc_metrics_overlay_volume"
 # END CONFIGURATION
 
 # START OTHER VARIABLES
@@ -21,8 +21,6 @@ export CONTECO_DC_METRICS_OVERLAY_ENVIRONMENT_OUTPUT_CONFIG_KAFKA_TOPIC="test"
 # END OTHER VARIABLES
 
 # START VOLUMES VARIABLES
-export CONTECO_DC_METRICS_OVERLAY_VOLUMES="'/etc:/hostfs/etc:ro','${CONTECO_TYPE}_metrics_overlay_volume:/usr/share/metricbeat/data'"
-export CONTECO_DC_GLOBAL_VOLUMES=""
 # END VOLUMES VARIABLES
 
 # START PORTS VARIABLES
