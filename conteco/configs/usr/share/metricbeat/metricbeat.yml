@@ -239,7 +239,7 @@ metricbeat.modules:
   enabled: ${ES_METRICBEAT_TRAEFIK:false}
   metricsets: ["health"]
   period: 30s
-  hosts: ["traefik:8080"]
+  hosts: ["traefik:8080/metrics"]
 
 - module: uwsgi
   enabled: ${ES_METRICBEAT_UWSGI:false}
