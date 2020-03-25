@@ -1,5 +1,5 @@
 ##### BEGIN image/Dockerfile/image-header #####
-FROM $CONTECO_REALM/$CONTECO_ECOSYSTEM.$CONTECO_BASE AS base
+FROM $CONTECO_REGISTRY$CONTECO_REALM_RUNTIME/$CONTECO_ECOSYSTEM_RUNTIME.$CONTECO_BASE AS base
 USER root
 ##### END image/Dockerfile/image-header #####
 
