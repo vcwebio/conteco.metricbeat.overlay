@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="The ElasticSearch Metricbeat base image configured f
 
 export CONTECO_TYPE="metricbeat"
 export CONTECO_NAME="overlay"
-export CONTECO_TAG="7.1.1"
+export CONTECO_TAG="7.8.0"
 
 export CONTECO_BASE="metricbeat.base"
 export CONTECO_BUILD="image"
