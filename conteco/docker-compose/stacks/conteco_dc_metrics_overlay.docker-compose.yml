@@ -12,7 +12,6 @@ services:
     networks: [${CONTECO_NETWORKLOCAL}_overlay]
     deploy:
       mode: replicated
-      ${CONTECO_DC_METRICS_OVERLAY_DEPLOY_MODE_REPLICATED_REPLICAS}
       resources:
         limits:
           cpus: '${CONTECO_DC_METRICS_OVERLAY_DEPLOY_RESOURCES_LIMITS_CPUS}'
@@ -22,9 +21,10 @@ services:
           memory: '${CONTECO_DC_METRICS_OVERLAY_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
       placement:
         constraints: [${CONTECO_DC_METRICS_OVERLAY_DEPLOY_PLACEMENT_CONSTRAINTS}]
-      labels: [${CONTECO_DC_METRICS_OVERLAY_DEPLOY_LABELS}]
-    labels: [${CONTECO_DC_METRICS_OVERLAY_LABELS}]
+      ${CONTECO_DC_BASH_DEPLOY_EXTENSIONS}
+    ${CONTECO_DC_BASH_SERVICE_EXTENSIONS}
 # END SERVICE metricbeat.overlay
 
-volumes: {${CONTECO_STACKPREFIX}_metrics_overlay_volume: { external: true }}
 networks: {${CONTECO_NETWORKLOCAL}_overlay: { external: true }}
+volumes: {${CONTECO_STACKPREFIX}_metrics_overlay_volume: { external: true }}
+${CONTECO_DC_BASH_GLOBAL_EXTENSIONS}
