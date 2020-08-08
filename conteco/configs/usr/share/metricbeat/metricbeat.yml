@@ -285,7 +285,7 @@ output.kafka:
   compression: gzip
   max_message_bytes: 1000000
 
-logging.level: warning
+logging.level: ${ES_METRICBEAT_LOGGING_LEVEL:warning}
 logging.metrics.enabled: false
 logging.metrics.period: 30s
 logging.json: false
