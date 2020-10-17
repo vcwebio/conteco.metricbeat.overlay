@@ -17,11 +17,11 @@ USER metricbeat
 
 ##### BEGIN image/Dockerfile/env-labels-footer #####
 ENV CONTECO_NAME="overlay" \
-    CONTECO_TAG="7.8.0" \
+    CONTECO_TAG="7.9.2" \
     CONTECO_BASE="metricbeat.base" \
     CONTECO_BUILD="image"
 LABEL io.vcweb.name="overlay" \
-      io.vcweb.tag="7.8.0" \
+      io.vcweb.tag="7.9.2" \
       io.vcweb.base="metricbeat.base" \
       io.vcweb.build="image" \
       io.vcweb.label="metricbeat.overlay - ConteEco" \
